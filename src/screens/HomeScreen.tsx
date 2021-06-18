@@ -8,16 +8,6 @@ import ItemSeparator from '../components/ItemSeparator';
 
 const HomeScreen = () => {
 
-   // const itemSeparator = () => {
-   //    return <View
-   //       style={{
-   //          borderBottomWidth: 2,
-   //          opacity: 0.4,
-   //          marginVertical: 8,
-   //       }}
-   //    />
-   // }
-
    return (
       <View style={{...stylesApp.container, ...stylesApp.globalMargin}}>
 

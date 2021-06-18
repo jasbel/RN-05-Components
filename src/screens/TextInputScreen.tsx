@@ -5,6 +5,8 @@ import CustomSwitch from '../components/CustomSwitch'
 import HeaderTitle from '../components/HeaderTitle'
 import useForm from '../hooks/useForm'
 import stylesApp from '../theme/appTheme'
+import { useContext } from 'react';
+import { ThemeContext } from '../context/themeContext/ThemeContext'
 
 const TextInputScreen = () => {
 
@@ -22,6 +24,7 @@ const TextInputScreen = () => {
     //     })
     // }
 
+    const {theme: {colors}} = useContext(ThemeContext);
     const { form, onChange } = useForm({
         name: '',
         email: '',
@@ -38,26 +41,29 @@ const TextInputScreen = () => {
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss} >
                     <View style={[stylesApp.globalMargin]}>
                         <TextInput
-                            style={styles.input}
+                            style={{...styles.input, color: colors.text, backgroundColor: colors.background, borderColor: colors.inverse}}
                             placeholder="Ingrese su nombre"
                             autoCorrect={false}
                             autoCapitalize="words"
                             onChangeText={(value) => onChange(value, 'name')}
+                            placeholderTextColor= {colors.inverse}
                         />
                         <TextInput
-                            style={styles.input}
+                            style={{...styles.input, color: colors.text, backgroundColor: colors.background, borderColor: colors.inverse}}
                             placeholder="Ingrese su email"
                             autoCorrect={false}
                             autoCapitalize="none"
                             onChangeText={(value) => onChange(value, 'email')}
                             keyboardType="email-address"
+                            placeholderTextColor= {colors.inverse}
                             // keyboardAppearance='dark'
                         />
                         <TextInput
-                            style={styles.input}
+                            style={{...styles.input, color: colors.text, backgroundColor: colors.background, borderColor: colors.inverse}}
                             placeholder="Ingrese su telefono"
                             onChangeText={(value) => onChange(value, 'phone')}
                             keyboardType='phone-pad'
+                            placeholderTextColor= {colors.inverse}
                         />
                         <View style={styles.switchRow}>
                             <Text style={styles.switchText}> isHungry </Text>

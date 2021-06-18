@@ -1,14 +1,36 @@
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
+// import { DarkTheme, DefaultTheme, NavigationContainer, Theme } from '@react-navigation/native';
 import React from 'react';
 import { Navigator } from './src/navigator/Navigator';
+import { ThemeProvider } from './src/context/themeContext/ThemeContext';
 
+// const customTheme: Theme = {
+//     dark: true,
+//     colors:{
+//         ...DarkTheme.colors,
+//         // ...DefaultTheme.colors,
+//         // primary: string,
+//         // background: 'black',
+//         // card: string,
+//         // text: string,
+//         // border: string,
+//         // notification: string,
+//     }
+// }
 
 const App = () => {
     return (
-        <NavigationContainer>{/* Rest of your app code */}
+        <AppState>
             <Navigator />
-        </NavigationContainer>
+        </AppState>
+    )
+}
+
+const AppState = ({children}: any) => {
+    return(
+        <ThemeProvider>
+            {children}
+        </ThemeProvider>
     )
 }
 
